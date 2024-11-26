@@ -1,6 +1,9 @@
-import { GeistSans } from 'geist/font/sans'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import SupabaseProvider from '@/components/providers/supabase-provider'
+import { Navigation } from '@/components/layout/navigation'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'OpenADHD',
@@ -14,9 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={GeistSans.className}>
+      <body className={inter.className}>
         <SupabaseProvider>
-          {children}
+          <Navigation />
+          <main>{children}</main>
         </SupabaseProvider>
       </body>
     </html>

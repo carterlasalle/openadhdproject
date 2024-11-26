@@ -1,18 +1,23 @@
-import Link from 'next/link';
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Container } from '@/components/ui/container'
 
 const mainNav = [
   { name: 'Resources', href: '/resources' },
   { name: 'Tools', href: '/tools' },
   { name: 'Community', href: '/community' },
-  { name: 'Downloads', href: '/resources/downloads' },
-];
+]
 
 const userNav = [
   { name: 'Dashboard', href: '/dashboard' },
   { name: 'Support Us', href: '/support-us' },
-];
+]
 
 export function Navigation() {
+  const pathname = usePathname()
+
   return (
     <nav className="border-b">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -53,5 +58,5 @@ export function Navigation() {
         </div>
       </div>
     </nav>
-  );
+  )
 } 
