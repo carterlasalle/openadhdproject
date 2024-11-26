@@ -1,3 +1,1935 @@
+Directory Structure:
+
+└── ./
+    ├── src
+    │   ├── app
+    │   │   ├── auth
+    │   │   │   └── signin
+    │   │   │       └── page.tsx
+    │   │   ├── community
+    │   │   │   └── page.tsx
+    │   │   ├── dashboard
+    │   │   │   └── page.tsx
+    │   │   ├── resources
+    │   │   │   ├── downloads
+    │   │   │   │   └── page.tsx
+    │   │   │   └── page.tsx
+    │   │   ├── support-us
+    │   │   │   └── page.tsx
+    │   │   ├── tools
+    │   │   │   └── page.tsx
+    │   │   ├── globals.css
+    │   │   ├── layout.tsx
+    │   │   └── page.tsx
+    │   ├── components
+    │   │   ├── layout
+    │   │   │   └── navigation.tsx
+    │   │   └── ui
+    │   │       ├── card.tsx
+    │   │       ├── container.tsx
+    │   │       └── page-header.tsx
+    │   └── lib
+    │       ├── supabase
+    │       │   └── config.ts
+    │       └── utils.ts
+    ├── .eslintrc.json
+    ├── .gitignore
+    ├── components.json
+    ├── next.config.ts
+    ├── package.json
+    ├── postcss.config.mjs
+    ├── PRD.md
+    ├── README.md
+    ├── tailwind.config.ts
+    ├── tsconfig.json
+    └── yarn.lock
+
+
+
+---
+File: /src/app/auth/signin/page.tsx
+---
+
+import Link from 'next/link';
+import { Container } from '@/components/ui/container';
+
+export default function SignInPage() {
+  return (
+    <Container className="max-w-md">
+      <div className="rounded-lg border bg-card p-8">
+        <div className="mb-8 space-y-2 text-center">
+          <h1 className="text-2xl font-bold">Welcome Back</h1>
+          <p className="text-sm text-muted-foreground">
+            Sign in to your account to continue
+          </p>
+        </div>
+
+        {/* Social Sign In */}
+        <div className="mb-6 space-y-4">
+          <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#4285F4] px-4 py-2 text-sm font-medium text-white hover:bg-[#4285F4]/90">
+            <svg className="h-4 w-4" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+              />
+              <path
+                fill="currentColor"
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+              />
+              <path
+                fill="currentColor"
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+              />
+              <path
+                fill="currentColor"
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+              />
+            </svg>
+            Continue with Google
+          </button>
+
+          <button className="flex w-full items-center justify-center gap-2 rounded-md bg-[#24292F] px-4 py-2 text-sm font-medium text-white hover:bg-[#24292F]/90">
+            <svg className="h-4 w-4" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              />
+            </svg>
+            Continue with GitHub
+          </button>
+        </div>
+
+        <div className="relative mb-6">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t"></div>
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-background px-2 text-muted-foreground">
+              Or continue with
+            </span>
+          </div>
+        </div>
+
+        <form className="space-y-4">
+          <div>
+            <label htmlFor="email" className="mb-2 block text-sm font-medium">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="w-full rounded-md border bg-background px-3 py-2"
+              placeholder="you@example.com"
+            />
+          </div>
+          <div>
+            <label htmlFor="password" className="mb-2 block text-sm font-medium">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="w-full rounded-md border bg-background px-3 py-2"
+              placeholder="••••••••"
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <input
+                type="checkbox"
+                id="remember"
+                className="h-4 w-4 rounded border-gray-300"
+              />
+              <label
+                htmlFor="remember"
+                className="ml-2 block text-sm text-muted-foreground"
+              >
+                Remember me
+              </label>
+            </div>
+            <Link
+              href="/auth/forgot-password"
+              className="text-sm text-primary hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
+          <button
+            type="submit"
+            className="w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            Sign In
+          </button>
+        </form>
+
+        <div className="mt-6 text-center text-sm text-muted-foreground">
+          Don't have an account?{' '}
+          <Link href="/auth/signup" className="text-primary hover:underline">
+            Sign Up
+          </Link>
+        </div>
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/community/page.tsx
+---
+
+import { Container } from '@/components/ui/container';
+import { PageHeader } from '@/components/ui/page-header';
+import { Card } from '@/components/ui/card';
+
+const forums = [
+  {
+    title: 'General Discussion',
+    description: 'Connect with others and share your ADHD experiences.',
+    topics: 12,
+    posts: 48,
+    lastPost: '5 minutes ago',
+  },
+  {
+    title: 'Success Stories',
+    description: 'Share and celebrate your achievements and milestones.',
+    topics: 8,
+    posts: 32,
+    lastPost: '1 hour ago',
+  },
+  {
+    title: 'Tips & Strategies',
+    description: 'Exchange practical tips and strategies for managing ADHD.',
+    topics: 15,
+    posts: 67,
+    lastPost: '30 minutes ago',
+  },
+  {
+    title: 'Tool Reviews',
+    description: 'Discuss and review ADHD management tools and apps.',
+    topics: 10,
+    posts: 45,
+    lastPost: '2 hours ago',
+  },
+  {
+    title: 'Support Groups',
+    description: 'Find and join support groups for specific ADHD challenges.',
+    topics: 6,
+    posts: 28,
+    lastPost: '3 hours ago',
+  },
+  {
+    title: 'Ask the Experts',
+    description: 'Get answers from ADHD professionals and experts.',
+    topics: 4,
+    posts: 16,
+    lastPost: '1 day ago',
+  },
+];
+
+export default function CommunityPage() {
+  return (
+    <Container>
+      <PageHeader
+        title="Community"
+        description="Connect with others, share experiences, and learn from the ADHD community."
+      >
+        <div className="mt-4 flex gap-4">
+          <button className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+            New Discussion
+          </button>
+          <button className="rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground hover:bg-secondary/90">
+            Find Support Group
+          </button>
+        </div>
+      </PageHeader>
+
+      <div className="space-y-6">
+        {forums.map((forum) => (
+          <div
+            key={forum.title}
+            className="rounded-lg border bg-card p-6 shadow-sm"
+          >
+            <div className="flex items-start justify-between">
+              <div>
+                <h2 className="text-xl font-semibold">{forum.title}</h2>
+                <p className="mt-1 text-muted-foreground">
+                  {forum.description}
+                </p>
+              </div>
+              <button className="rounded-md bg-primary/10 px-3 py-1 text-sm font-medium text-primary hover:bg-primary/20">
+                View Forum
+              </button>
+            </div>
+            <div className="mt-4 flex items-center gap-6 text-sm text-muted-foreground">
+              <div>
+                <span className="font-medium text-foreground">
+                  {forum.topics}
+                </span>{' '}
+                topics
+              </div>
+              <div>
+                <span className="font-medium text-foreground">
+                  {forum.posts}
+                </span>{' '}
+                posts
+              </div>
+              <div>
+                Last post{' '}
+                <span className="font-medium text-foreground">
+                  {forum.lastPost}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/dashboard/page.tsx
+---
+
+import { Container } from '@/components/ui/container';
+import { PageHeader } from '@/components/ui/page-header';
+import { Card } from '@/components/ui/card';
+
+const savedResources = [
+  {
+    title: 'Understanding Executive Function',
+    category: 'Adult ADHD',
+    progress: 60,
+  },
+  {
+    title: 'Time Management Strategies',
+    category: 'ADHD Management',
+    progress: 40,
+  },
+  {
+    title: 'Medication Guide',
+    category: 'Treatment',
+    progress: 80,
+  },
+];
+
+const favoriteTools = [
+  {
+    name: 'Todoist',
+    category: 'Task Management',
+    lastUsed: '2 hours ago',
+  },
+  {
+    name: 'Forest',
+    category: 'Focus',
+    lastUsed: '1 day ago',
+  },
+  {
+    name: 'Notion',
+    category: 'Notes',
+    lastUsed: '3 hours ago',
+  },
+];
+
+const progressStats = [
+  {
+    label: 'Resources Completed',
+    value: 12,
+    total: 20,
+  },
+  {
+    label: 'Tools Tried',
+    value: 8,
+    total: 15,
+  },
+  {
+    label: 'Days Streak',
+    value: 5,
+    total: 5,
+  },
+];
+
+export default function DashboardPage() {
+  return (
+    <Container>
+      <PageHeader
+        title="My Dashboard"
+        description="Track your progress and manage your resources."
+      />
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Progress Overview */}
+        <Card title="My Progress" description="Track your learning journey">
+          <div className="mt-4 space-y-4">
+            {progressStats.map((stat) => (
+              <div key={stat.label} className="space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span>{stat.label}</span>
+                  <span className="font-medium">
+                    {stat.value}/{stat.total}
+                  </span>
+                </div>
+                <div className="h-2 rounded-full bg-muted">
+                  <div
+                    className="h-full rounded-full bg-primary"
+                    style={{
+                      width: `${(stat.value / stat.total) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* Saved Resources */}
+        <Card
+          title="Saved Resources"
+          description="Continue where you left off"
+        >
+          <div className="mt-4 space-y-4">
+            {savedResources.map((resource) => (
+              <div
+                key={resource.title}
+                className="rounded-lg border bg-card p-4"
+              >
+                <div className="mb-2 flex items-center justify-between">
+                  <h3 className="font-medium">{resource.title}</h3>
+                  <span className="text-xs text-muted-foreground">
+                    {resource.category}
+                  </span>
+                </div>
+                <div className="h-2 rounded-full bg-muted">
+                  <div
+                    className="h-full rounded-full bg-primary"
+                    style={{ width: `${resource.progress}%` }}
+                  />
+                </div>
+                <div className="mt-2 text-right text-xs text-muted-foreground">
+                  {resource.progress}% Complete
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* Favorite Tools */}
+        <Card title="My Tools" description="Quick access to your favorite tools">
+          <div className="mt-4 space-y-4">
+            {favoriteTools.map((tool) => (
+              <div
+                key={tool.name}
+                className="flex items-center justify-between rounded-lg border bg-card p-4"
+              >
+                <div>
+                  <h3 className="font-medium">{tool.name}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {tool.category}
+                  </p>
+                </div>
+                <div className="text-right text-xs text-muted-foreground">
+                  Last used:<br />{tool.lastUsed}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/resources/downloads/page.tsx
+---
+
+import { Container } from '@/components/ui/container';
+import { PageHeader } from '@/components/ui/page-header';
+import { Card } from '@/components/ui/card';
+
+const resources = [
+  {
+    title: 'ADHD Task Planning Template',
+    description: 'A comprehensive template for breaking down tasks and managing time.',
+    type: 'PDF',
+    size: '245 KB',
+    downloads: 1234,
+    category: 'Planning',
+  },
+  {
+    title: 'Daily Routine Checklist',
+    description: 'Customizable checklist for establishing and maintaining daily routines.',
+    type: 'PDF',
+    size: '182 KB',
+    downloads: 987,
+    category: 'Organization',
+  },
+  {
+    title: 'Medication Tracking Sheet',
+    description: 'Track medication timing, dosage, and effects.',
+    type: 'PDF & Excel',
+    size: '156 KB',
+    downloads: 756,
+    category: 'Health',
+  },
+  {
+    title: 'Study Skills Workbook',
+    description: 'Comprehensive guide for developing effective study habits with ADHD.',
+    type: 'PDF',
+    size: '2.1 MB',
+    downloads: 2345,
+    category: 'Education',
+  },
+  {
+    title: 'Focus Timer Templates',
+    description: 'Customizable Pomodoro timer sheets for different tasks and durations.',
+    type: 'PDF',
+    size: '134 KB',
+    downloads: 543,
+    category: 'Productivity',
+  },
+  {
+    title: 'ADHD Symptom Journal',
+    description: 'Track and monitor ADHD symptoms, triggers, and management strategies.',
+    type: 'PDF & Word',
+    size: '198 KB',
+    downloads: 876,
+    category: 'Health',
+  },
+];
+
+const categories = [
+  'All',
+  'Planning',
+  'Organization',
+  'Health',
+  'Education',
+  'Productivity',
+];
+
+export default function DownloadsPage() {
+  return (
+    <Container>
+      <PageHeader
+        title="Downloadable Resources"
+        description="Free templates, worksheets, and guides to help manage ADHD."
+      >
+        <div className="mt-4 flex flex-wrap gap-2">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className="rounded-full bg-secondary/50 px-4 py-1 text-sm font-medium hover:bg-secondary/70"
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      </PageHeader>
+
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {resources.map((resource) => (
+          <div
+            key={resource.title}
+            className="rounded-lg border bg-card p-6 shadow-sm"
+          >
+            <div className="mb-4">
+              <div className="mb-2 flex items-center justify-between">
+                <span className="rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
+                  {resource.category}
+                </span>
+                <span className="text-xs text-muted-foreground">
+                  {resource.type}
+                </span>
+              </div>
+              <h3 className="text-lg font-semibold">{resource.title}</h3>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {resource.description}
+              </p>
+            </div>
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-muted-foreground">
+                Size: {resource.size}
+              </span>
+              <span className="text-muted-foreground">
+                {resource.downloads.toLocaleString()} downloads
+              </span>
+            </div>
+            <button className="mt-4 w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+              Download
+            </button>
+          </div>
+        ))}
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/resources/page.tsx
+---
+
+import { Container } from '@/components/ui/container';
+import { PageHeader } from '@/components/ui/page-header';
+import { Card } from '@/components/ui/card';
+
+const resources = [
+  {
+    title: 'Understanding ADHD',
+    description: 'Learn about ADHD symptoms, diagnosis, and treatment options.',
+    sections: [
+      'What is ADHD?',
+      'Types of ADHD',
+      'Common Symptoms',
+      'Diagnosis Process',
+      'Treatment Options',
+    ],
+  },
+  {
+    title: 'ADHD in Children',
+    description: 'Resources for parents and educators supporting children with ADHD.',
+    sections: [
+      'Early Signs and Symptoms',
+      'School Accommodations',
+      'Parenting Strategies',
+      'Behavioral Therapy',
+      'Educational Support',
+    ],
+  },
+  {
+    title: 'Adult ADHD',
+    description: 'Information and strategies for adults living with ADHD.',
+    sections: [
+      'Late Diagnosis',
+      'Workplace Strategies',
+      'Relationship Management',
+      'Executive Function',
+      'Life Skills',
+    ],
+  },
+  {
+    title: 'ADHD Management',
+    description: 'Practical strategies for managing ADHD symptoms.',
+    sections: [
+      'Time Management',
+      'Organization Skills',
+      'Focus Techniques',
+      'Stress Management',
+      'Habit Building',
+    ],
+  },
+  {
+    title: 'ADHD Research',
+    description: 'Latest scientific research and studies about ADHD.',
+    sections: [
+      'Recent Studies',
+      'Brain Science',
+      'Treatment Research',
+      'Genetic Factors',
+      'Environmental Impacts',
+    ],
+  },
+  {
+    title: 'ADHD Support',
+    description: 'Support resources and community connections.',
+    sections: [
+      'Support Groups',
+      'Therapy Options',
+      'Coaching Services',
+      'Crisis Resources',
+      'Community Forums',
+    ],
+  },
+];
+
+export default function ResourcesPage() {
+  return (
+    <Container>
+      <PageHeader
+        title="ADHD Resources"
+        description="Comprehensive resources for understanding and managing ADHD."
+      />
+      
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {resources.map((resource) => (
+          <Card
+            key={resource.title}
+            title={resource.title}
+            description={resource.description}
+          >
+            <ul className="mt-4 space-y-2">
+              {resource.sections.map((section) => (
+                <li
+                  key={section}
+                  className="flex items-center text-sm text-muted-foreground"
+                >
+                  <svg
+                    className="mr-2 h-4 w-4 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                  {section}
+                </li>
+              ))}
+            </ul>
+            <button className="mt-6 w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+              Read More
+            </button>
+          </Card>
+        ))}
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/support-us/page.tsx
+---
+
+import { Container } from '@/components/ui/container';
+import { PageHeader } from '@/components/ui/page-header';
+import { Card } from '@/components/ui/card';
+
+const supportOptions = [
+  {
+    title: 'One-time Donation',
+    description: 'Support our mission with a one-time contribution.',
+    options: ['$5', '$10', '$25', '$50', '$100', 'Custom'],
+    benefits: [
+      'Help keep resources free',
+      'Support development of new features',
+      'Enable content translations',
+    ],
+  },
+  {
+    title: 'Monthly Supporter',
+    description: 'Become a monthly supporter and help us grow.',
+    options: ['$5/mo', '$10/mo', '$25/mo', '$50/mo', 'Custom'],
+    benefits: [
+      'Early access to new features',
+      'Supporter badge on community',
+      'Monthly supporter newsletter',
+      'Vote on feature priorities',
+    ],
+  },
+  {
+    title: 'Organization Sponsor',
+    description: 'Partner with us to make a bigger impact.',
+    options: ['Contact Us'],
+    benefits: [
+      'Custom partnership options',
+      'Organization recognition',
+      'Impact reporting',
+      'Direct support channel',
+    ],
+  },
+];
+
+const otherWays = [
+  {
+    title: 'GitHub Sponsors',
+    description: 'Support our open-source development directly through GitHub.',
+    icon: (
+      <svg className="h-6 w-6" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+        />
+      </svg>
+    ),
+    link: 'https://github.com/sponsors/carterlasalle',
+  },
+  {
+    title: 'Open Collective',
+    description: 'Support our community through Open Collective.',
+    icon: (
+      <svg className="h-6 w-6" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.182c5.423 0 9.818 4.395 9.818 9.818 0 5.423-4.395 9.818-9.818 9.818-5.423 0-9.818-4.395-9.818-9.818 0-5.423 4.395-9.818 9.818-9.818zm0 2.182c-4.207 0-7.636 3.429-7.636 7.636S7.793 19.636 12 19.636s7.636-3.429 7.636-7.636S16.207 4.364 12 4.364z"
+        />
+      </svg>
+    ),
+    link: 'https://opencollective.com/openadhd',
+  },
+  {
+    title: 'Contribute Code',
+    description: 'Help improve OpenADHD by contributing to our codebase.',
+    icon: (
+      <svg className="h-6 w-6" viewBox="0 0 24 24">
+        <path
+          fill="currentColor"
+          d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+        />
+      </svg>
+    ),
+    link: 'https://github.com/carterlasalle/openadhd',
+  },
+];
+
+export default function SupportUsPage() {
+  return (
+    <Container>
+      <PageHeader
+        title="Support OpenADHD"
+        description="Help us keep OpenADHD free and accessible for everyone."
+      />
+
+      <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {supportOptions.map((option) => (
+          <div
+            key={option.title}
+            className="rounded-lg border bg-card p-6 shadow-sm"
+          >
+            <h2 className="text-xl font-semibold">{option.title}</h2>
+            <p className="mt-2 text-muted-foreground">{option.description}</p>
+            
+            <div className="mt-4 flex flex-wrap gap-2">
+              {option.options.map((amount) => (
+                <button
+                  key={amount}
+                  className="rounded-full bg-secondary/50 px-4 py-1 text-sm font-medium hover:bg-secondary/70"
+                >
+                  {amount}
+                </button>
+              ))}
+            </div>
+
+            <div className="mt-6">
+              <h3 className="mb-2 text-sm font-medium">Benefits:</h3>
+              <ul className="space-y-2">
+                {option.benefits.map((benefit) => (
+                  <li
+                    key={benefit}
+                    className="flex items-center text-sm text-muted-foreground"
+                  >
+                    <svg
+                      className="mr-2 h-4 w-4 text-primary"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <button className="mt-6 w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+              Support Now
+            </button>
+          </div>
+        ))}
+      </div>
+
+      <div>
+        <h2 className="mb-6 text-2xl font-bold">Other Ways to Support</h2>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {otherWays.map((way) => (
+            <a
+              key={way.title}
+              href={way.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start gap-4 rounded-lg border bg-card p-6 shadow-sm transition-colors hover:bg-accent/50"
+            >
+              <div className="text-primary">{way.icon}</div>
+              <div>
+                <h3 className="font-medium">{way.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {way.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/tools/page.tsx
+---
+
+import { Container } from '@/components/ui/container';
+import { PageHeader } from '@/components/ui/page-header';
+import { Card } from '@/components/ui/card';
+
+const tools = [
+  {
+    title: 'Task Management',
+    description: 'Tools to help organize tasks, set reminders, and track progress.',
+    tools: [
+      {
+        name: 'Todoist',
+        description: 'Popular task management app with ADHD-friendly features',
+        url: 'https://todoist.com',
+      },
+      {
+        name: 'Microsoft To Do',
+        description: 'Free task management app with My Day planning',
+        url: 'https://todo.microsoft.com',
+      },
+      {
+        name: 'TickTick',
+        description: 'Task manager with built-in Pomodoro timer',
+        url: 'https://ticktick.com',
+      },
+    ],
+  },
+  {
+    title: 'Focus & Productivity',
+    description: 'Applications and techniques to improve focus and productivity.',
+    tools: [
+      {
+        name: 'Forest',
+        description: 'Stay focused by planting virtual trees',
+        url: 'https://www.forestapp.cc',
+      },
+      {
+        name: 'Freedom',
+        description: 'Block distracting websites and apps',
+        url: 'https://freedom.to',
+      },
+      {
+        name: 'Brain.fm',
+        description: 'Music designed for focus and productivity',
+        url: 'https://brain.fm',
+      },
+    ],
+  },
+  {
+    title: 'Time Management',
+    description: 'Tools for better time awareness and scheduling.',
+    tools: [
+      {
+        name: 'RescueTime',
+        description: 'Automatic time tracking and productivity insights',
+        url: 'https://www.rescuetime.com',
+      },
+      {
+        name: 'Clockify',
+        description: 'Free time tracking for better time awareness',
+        url: 'https://clockify.me',
+      },
+      {
+        name: 'Calendar',
+        description: 'Smart scheduling with AI assistance',
+        url: 'https://calendar.com',
+      },
+    ],
+  },
+  {
+    title: 'Note Taking',
+    description: 'Tools for capturing and organizing thoughts and information.',
+    tools: [
+      {
+        name: 'Notion',
+        description: 'All-in-one workspace for notes and projects',
+        url: 'https://www.notion.so',
+      },
+      {
+        name: 'Evernote',
+        description: 'Popular note-taking app with web clipper',
+        url: 'https://evernote.com',
+      },
+      {
+        name: 'OneNote',
+        description: 'Free note-taking app with handwriting support',
+        url: 'https://www.onenote.com',
+      },
+    ],
+  },
+  {
+    title: 'Habit Building',
+    description: 'Tools to help develop and maintain positive habits.',
+    tools: [
+      {
+        name: 'Habitica',
+        description: 'Gamified habit tracking and task management',
+        url: 'https://habitica.com',
+      },
+      {
+        name: 'Streaks',
+        description: 'Simple habit tracking with streaks',
+        url: 'https://streaksapp.com',
+      },
+      {
+        name: 'Loop Habit Tracker',
+        description: 'Open-source habit tracker with detailed statistics',
+        url: 'https://loophabits.org',
+      },
+    ],
+  },
+  {
+    title: 'Medication Tracking',
+    description: 'Tools for managing and tracking medication.',
+    tools: [
+      {
+        name: 'Medisafe',
+        description: 'Medication reminder and tracking app',
+        url: 'https://www.medisafe.com',
+      },
+      {
+        name: 'Round Health',
+        description: 'Simple medication reminder with flexible scheduling',
+        url: 'https://roundhealth.co',
+      },
+      {
+        name: 'Mango Health',
+        description: 'Gamified medication and health tracking',
+        url: 'https://www.mangohealth.com',
+      },
+    ],
+  },
+];
+
+export default function ToolsPage() {
+  return (
+    <Container>
+      <PageHeader
+        title="ADHD Tools"
+        description="A curated collection of tools to help manage ADHD symptoms and improve daily life."
+      />
+      
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {tools.map((category) => (
+          <Card
+            key={category.title}
+            title={category.title}
+            description={category.description}
+          >
+            <ul className="mt-4 space-y-3">
+              {category.tools.map((tool) => (
+                <li key={tool.name} className="space-y-1">
+                  <a
+                    href={tool.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-sm font-medium text-primary hover:underline"
+                  >
+                    {tool.name}
+                  </a>
+                  <p className="text-sm text-muted-foreground">
+                    {tool.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+            <button className="mt-6 w-full rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90">
+              View All Tools
+            </button>
+          </Card>
+        ))}
+      </div>
+    </Container>
+  );
+} 
+
+
+---
+File: /src/app/globals.css
+---
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+
+---
+File: /src/app/layout.tsx
+---
+
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Navigation } from '@/components/layout/navigation';
+import './globals.css';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  title: 'OpenADHD - Free ADHD Resources & Tools',
+  description: 'Free, open-source platform providing comprehensive resources and tools for individuals with ADHD, their families, caregivers, and healthcare professionals.',
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Navigation />
+        <main className="min-h-screen bg-background">
+          {children}
+        </main>
+      </body>
+    </html>
+  );
+}
+
+
+
+---
+File: /src/app/page.tsx
+---
+
+import Link from 'next/link';
+import { Container } from '@/components/ui/container';
+import { Card } from '@/components/ui/card';
+
+export default function HomePage() {
+  return (
+    <>
+      {/* Hero Section */}
+      <div className="flex min-h-[60vh] flex-col items-center justify-center bg-gradient-to-b from-primary/10 to-background p-8 text-center">
+        <h1 className="mb-6 text-4xl font-bold sm:text-5xl lg:text-6xl">
+          Welcome to OpenADHD
+        </h1>
+        <p className="mb-8 max-w-2xl text-xl text-muted-foreground">
+          Free, open-source resources and tools for individuals with ADHD, their families,
+          caregivers, and healthcare professionals.
+        </p>
+        <div className="flex gap-4">
+          <Link
+            href="/resources"
+            className="rounded-lg bg-primary px-6 py-3 text-lg font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            Browse Resources
+          </Link>
+          <Link
+            href="/tools"
+            className="rounded-lg bg-secondary px-6 py-3 text-lg font-medium text-secondary-foreground hover:bg-secondary/90"
+          >
+            Explore Tools
+          </Link>
+        </div>
+      </div>
+
+      {/* Features Section */}
+      <Container>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <Card
+            title="Curated Resources"
+            description="Access a comprehensive library of ADHD information, research, and management strategies."
+          >
+            <Link
+              href="/resources"
+              className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+            >
+              Learn More →
+            </Link>
+          </Card>
+
+          <Card
+            title="Practical Tools"
+            description="Discover and use tools designed to help with task management, focus, and productivity."
+          >
+            <Link
+              href="/tools"
+              className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+            >
+              View Tools →
+            </Link>
+          </Card>
+
+          <Card
+            title="Supportive Community"
+            description="Connect with others, share experiences, and learn from the ADHD community."
+          >
+            <Link
+              href="/community"
+              className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+            >
+              Join Us →
+            </Link>
+          </Card>
+        </div>
+      </Container>
+
+      {/* Mission Section */}
+      <Container className="bg-muted/50">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-4 text-3xl font-bold">Our Mission</h2>
+          <p className="mb-8 text-lg text-muted-foreground">
+            To democratize access to ADHD resources and tools while building an inclusive,
+            supportive community that empowers individuals with ADHD to thrive.
+          </p>
+          <Link
+            href="/about"
+            className="inline-flex items-center text-sm font-medium text-primary hover:underline"
+          >
+            Learn About Our Mission →
+          </Link>
+        </div>
+      </Container>
+
+      {/* Getting Started Section */}
+      <Container>
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-4 text-3xl font-bold">Get Started</h2>
+          <p className="mb-8 text-lg text-muted-foreground">
+            Create a free account to save resources, track your progress, and join our
+            community.
+          </p>
+          <Link
+            href="/auth/signup"
+            className="rounded-lg bg-primary px-6 py-3 text-lg font-medium text-primary-foreground hover:bg-primary/90"
+          >
+            Sign Up Now
+          </Link>
+        </div>
+      </Container>
+    </>
+  );
+}
+
+
+
+---
+File: /src/components/layout/navigation.tsx
+---
+
+import Link from 'next/link';
+
+const mainNav = [
+  { name: 'Resources', href: '/resources' },
+  { name: 'Tools', href: '/tools' },
+  { name: 'Community', href: '/community' },
+  { name: 'Downloads', href: '/resources/downloads' },
+];
+
+const userNav = [
+  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Support Us', href: '/support-us' },
+];
+
+export function Navigation() {
+  return (
+    <nav className="border-b">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center">
+          <Link href="/" className="text-xl font-bold">
+            OpenADHD
+          </Link>
+          <div className="hidden ml-8 sm:block">
+            <div className="flex items-center space-x-4">
+              {mainNav.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="rounded-md px-3 py-2 text-sm hover:bg-accent"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center space-x-4">
+          {userNav.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="hidden sm:block rounded-md px-3 py-2 text-sm hover:bg-accent"
+            >
+              {item.name}
+            </Link>
+          ))}
+          <Link
+            href="/auth/signin"
+            className="rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground hover:bg-primary/90"
+          >
+            Sign In
+          </Link>
+        </div>
+      </div>
+    </nav>
+  );
+} 
+
+
+---
+File: /src/components/ui/card.tsx
+---
+
+interface CardProps {
+  title: string;
+  description: string;
+  children?: React.ReactNode;
+}
+
+export function Card({ title, description, children }: CardProps) {
+  return (
+    <div className="rounded-lg border bg-card p-6 shadow-sm">
+      <h2 className="mb-2 text-xl font-semibold">{title}</h2>
+      <p className="mb-4 text-muted-foreground">{description}</p>
+      {children}
+    </div>
+  );
+} 
+
+
+---
+File: /src/components/ui/container.tsx
+---
+
+interface ContainerProps {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export function Container({ children, className = "" }: ContainerProps) {
+  return (
+    <div className={`mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 ${className}`}>
+      {children}
+    </div>
+  );
+} 
+
+
+---
+File: /src/components/ui/page-header.tsx
+---
+
+interface PageHeaderProps {
+  title: string;
+  description?: string;
+  children?: React.ReactNode;
+}
+
+export function PageHeader({ title, description, children }: PageHeaderProps) {
+  return (
+    <div className="mb-8 space-y-4">
+      <h1 className="text-3xl font-bold">{title}</h1>
+      {description && (
+        <p className="text-lg text-muted-foreground">{description}</p>
+      )}
+      {children}
+    </div>
+  );
+} 
+
+
+---
+File: /src/lib/supabase/config.ts
+---
+
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables');
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey); 
+
+
+---
+File: /src/lib/utils.ts
+---
+
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+
+
+---
+File: /.eslintrc.json
+---
+
+{
+  "extends": ["next/core-web-vitals", "next/typescript"]
+}
+
+
+
+---
+File: /.gitignore
+---
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+
+
+---
+File: /components.json
+---
+
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "iconLibrary": "lucide"
+}
+
+
+---
+File: /next.config.ts
+---
+
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default nextConfig;
+
+
+
+---
+File: /package.json
+---
+
+{
+  "name": "openadhd",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.1",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.46.1",
+    "@tanstack/react-query": "^5.61.3",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.461.0",
+    "next": "15.0.3",
+    "plausible-tracker": "^0.3.9",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@shadcn/ui": "^0.0.4",
+    "@types/node": "^22.9.4",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.7.2"
+  }
+}
+
+
+
+---
+File: /postcss.config.mjs
+---
+
+/** @type {import('postcss-load-config').Config} */
+const config = {
+  plugins: {
+    tailwindcss: {},
+  },
+};
+
+export default config;
+
+
+
+---
+File: /PRD.md
+---
+
+# OpenADHD - Product Requirements Document
+
+## Overview
+OpenADHD is a free, open-source website dedicated to providing comprehensive resources, tools, and information about Attention Deficit Hyperactivity Disorder (ADHD). The platform aims to be a one-stop destination for individuals with ADHD, their families, caregivers, and healthcare professionals.
+
+## Mission Statement
+To democratize access to ADHD resources and tools while building an inclusive, supportive community that empowers individuals with ADHD to thrive.
+
+## Target Audience
+1. Individuals with ADHD (diagnosed or seeking diagnosis)
+2. Parents and caregivers of people with ADHD
+3. Healthcare professionals and educators
+4. ADHD researchers and advocates
+5. General public seeking ADHD information
+
+## Core Features
+
+### 1. Resource Library
+- Curated collection of ADHD research papers and articles
+- Educational content about ADHD symptoms, diagnosis, and management
+- Downloadable worksheets and planning templates
+- Video tutorials and guides
+- References to scientific studies and publications
+
+### 2. Tools Directory
+- Comprehensive list of free and open-source ADHD tools
+- Categories:
+  - Task Management
+  - Time Management
+  - Focus Enhancement
+  - Habit Building
+  - Medication Tracking
+  - Productivity Tools
+  - Educational Support
+- Tool ratings and reviews from the community
+- Integration guides and setup tutorials
+
+### 3. Community Features
+- Discussion forums
+- Success stories and experiences
+- Tool recommendations
+- Tips and tricks sharing
+- Support groups
+- Expert Q&A sessions
+
+### 4. Personal Dashboard
+- Customizable tool recommendations
+- Progress tracking
+- Personal resource library
+- Saved articles and tools
+- Notes and reminders
+- Goal setting and tracking
+
+## Technical Requirements
+
+### Frontend
+- Framework: Next.js 14 (App Router)
+- UI Components: Shadcn UI
+- Styling: Tailwind CSS
+- State Management: React Query + Context API
+- Authentication: Supabase Auth
+- Analytics: Plausible Analytics (privacy-focused)
+
+### Backend
+- Database: Supabase (PostgreSQL)
+- API: Next.js API Routes
+- Storage: Supabase Storage
+- Search: Typesense
+- Caching: Vercel Edge Cache
+
+### Infrastructure
+- Hosting: Vercel
+- CDN: Vercel Edge Network
+- CI/CD: GitHub Actions
+- Monitoring: Vercel Analytics
+
+## Security Requirements
+- GDPR compliance
+- HIPAA awareness
+- Secure authentication
+- Data encryption
+- Regular security audits
+- Privacy-first analytics
+- Transparent data handling
+
+## Accessibility Requirements
+- WCAG 2.1 Level AA compliance
+- Screen reader compatibility
+- Keyboard navigation
+- Color contrast compliance
+- Dyslexia-friendly font options
+- Responsive design
+- Reduced motion support
+
+## Performance Requirements
+- Page load time < 3 seconds
+- Time to Interactive < 4 seconds
+- First Contentful Paint < 1.5 seconds
+- Core Web Vitals compliance
+- Mobile-first optimization
+- Offline capabilities for key features
+
+## Content Requirements
+- Evidence-based information
+- Professional medical review process
+- Regular content updates
+- Multi-language support (future)
+- Clear attribution and citations
+- Inclusive language guidelines
+- Content versioning
+
+## Monetization Strategy
+- Completely free for users
+- Sustainable through:
+  - Community donations
+  - GitHub Sponsors
+  - Open Collective funding
+  - Grants and partnerships
+  - Optional "Support Us" features
+
+## Success Metrics
+- Monthly Active Users (MAU)
+- User engagement rates
+- Tool adoption rates
+- Community participation
+- Content quality ratings
+- Accessibility scores
+- Performance metrics
+- User satisfaction surveys
+
+## Phase 1 MVP Features
+1. Basic resource library
+2. Initial tools directory
+3. User authentication
+4. Basic community features
+5. Mobile-responsive design
+6. Core accessibility features
+7. Essential security measures
+
+## Future Enhancements
+1. AI-powered tool recommendations
+2. Mobile applications
+3. Browser extensions
+4. API for developers
+5. Integration with popular ADHD tools
+6. Localization
+7. Advanced analytics
+8. Research collaboration platform
+
+## Project Timeline
+- Phase 1 (MVP): 3 months
+- Phase 2 (Community Features): +2 months
+- Phase 3 (Advanced Tools): +3 months
+- Phase 4 (Platform Expansion): +4 months
+
+## Maintenance Plan
+- Weekly security updates
+- Monthly content reviews
+- Quarterly feature updates
+- Annual comprehensive review
+- Continuous community feedback integration
+- Regular performance optimization
+
+## Risk Management
+- Data privacy compliance
+- Content accuracy verification
+- Community moderation
+- Technical debt management
+- Scalability planning
+- Resource allocation
+- Sustainability planning
+
+## Success Criteria
+1. Platform reaches 10,000 MAU within 6 months
+2. User satisfaction rate > 85%
+3. Tool directory includes > 100 verified tools
+4. Active community engagement
+5. Positive healthcare professional feedback
+6. Sustainable operation model
+7. High accessibility scores
+
+This PRD will be regularly updated based on user feedback, community needs, and technological advancements. 
+
+
+---
+File: /README.md
+---
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+---
+File: /tailwind.config.ts
+---
+
+import type { Config } from "tailwindcss";
+
+export default {
+    darkMode: ["class"],
+    content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+  	extend: {
+  		colors: {
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
+  },
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
+
+
+
+---
+File: /tsconfig.json
+---
+
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+
+
+
+---
+File: /yarn.lock
+---
+
 # THIS IS AN AUTOGENERATED FILE. DO NOT EDIT THIS FILE DIRECTLY.
 # yarn lockfile v1
 
@@ -334,11 +2266,6 @@
     prompts "^2.4.2"
     zod "^3.20.2"
 
-"@stitches/core@^1.2.8":
-  version "1.2.8"
-  resolved "https://registry.yarnpkg.com/@stitches/core/-/core-1.2.8.tgz#dce3b8fdc764fbc6dbea30c83b73bfb52cf96173"
-  integrity sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==
-
 "@supabase/auth-helpers-nextjs@^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@supabase/auth-helpers-nextjs/-/auth-helpers-nextjs-0.10.0.tgz#e831968f95e1bc44f400825d251a8b2fda97ee9f"
@@ -360,22 +2287,6 @@
   integrity sha512-IA7i2Xq2SWNCNMKxwmPlHafBQda0qtnFr8QnyyBr+KaSxoXXqEzFCnQ1dGTy6bsZjVBgXu++o3qrDypTspaAPw==
   dependencies:
     "@supabase/node-fetch" "^2.6.14"
-
-"@supabase/auth-ui-react@^0.4.7":
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/@supabase/auth-ui-react/-/auth-ui-react-0.4.7.tgz#6e3f941fc82a9798ba2033fab865a9f5fdfa0d32"
-  integrity sha512-Lp4FQGFh7BMX1Y/BFaUKidbryL7eskj1fl6Lby7BeHrTctbdvDbCMjVKS8wZ2rxuI8FtPS2iU900fSb70FHknQ==
-  dependencies:
-    "@stitches/core" "^1.2.8"
-    "@supabase/auth-ui-shared" "0.1.8"
-    prop-types "^15.7.2"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-
-"@supabase/auth-ui-shared@0.1.8", "@supabase/auth-ui-shared@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@supabase/auth-ui-shared/-/auth-ui-shared-0.1.8.tgz#1ce63c4ac58f29d7c76436b774b0e8809dd08617"
-  integrity sha512-ouQ0DjKcEFg+0gZigFIEgu01V3e6riGZPzgVD0MJsCBNsMsiDT74+GgCEIElMUpTGkwSja3xLwdFRFgMNFKcjg==
 
 "@supabase/functions-js@2.4.3":
   version "2.4.3"
@@ -2180,7 +4091,7 @@ log-symbols@^5.1.0:
     chalk "^5.0.0"
     is-unicode-supported "^1.1.0"
 
-loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -2611,7 +4522,7 @@ prompts@^2.4.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2637,14 +4548,6 @@ react-dom@19.0.0-rc-66855b96-20241106:
   dependencies:
     scheduler "0.25.0-rc-66855b96-20241106"
 
-react-dom@^18.2.0:
-  version "18.3.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.3.1.tgz#c2265d79511b57d479b3dd3fdfa51536494c5cb4"
-  integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
-  dependencies:
-    loose-envify "^1.1.0"
-    scheduler "^0.23.2"
-
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -2654,13 +4557,6 @@ react@19.0.0-rc-66855b96-20241106:
   version "19.0.0-rc-66855b96-20241106"
   resolved "https://registry.yarnpkg.com/react/-/react-19.0.0-rc-66855b96-20241106.tgz#f04d7283454a32bdd8e9757db4308b75b9739e56"
   integrity sha512-klH7xkT71SxRCx4hb1hly5FJB21Hz0ACyxbXYAECEqssUjtJeFUAaI2U1DgJAzkGEnvEm3DkxuBchMC/9K4ipg==
-
-react@^18.2.0:
-  version "18.3.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-18.3.1.tgz#49ab892009c53933625bd16b2533fc754cab2891"
-  integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
-  dependencies:
-    loose-envify "^1.1.0"
 
 read-cache@^1.0.0:
   version "1.0.0"
@@ -2791,13 +4687,6 @@ scheduler@0.25.0-rc-66855b96-20241106:
   version "0.25.0-rc-66855b96-20241106"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.25.0-rc-66855b96-20241106.tgz#8bbb728eca4de5a5deca1f18370fbce41aee91d1"
   integrity sha512-HQXp/Mnp/MMRSXMQF7urNFla+gmtXW/Gr1KliuR0iboTit4KvZRY8KYaq5ccCTAOJiUqQh2rE2F3wgUekmgdlA==
-
-scheduler@^0.23.2:
-  version "0.23.2"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.23.2.tgz#414ba64a3b282892e944cf2108ecc078d115cdc3"
-  integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
-  dependencies:
-    loose-envify "^1.1.0"
 
 semver@^6.3.1:
   version "6.3.1"
@@ -3414,3 +5303,4 @@ zod@^3.20.2, zod@^3.23.8:
   version "3.23.8"
   resolved "https://registry.yarnpkg.com/zod/-/zod-3.23.8.tgz#e37b957b5d52079769fb8097099b592f0ef4067d"
   integrity sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==
+
